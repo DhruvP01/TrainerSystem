@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainerBackOffice", "TrainerBackOffice\TrainerBackOffice.csproj", "{88A8F33E-B61E-42FE-A186-DD10FC83DF87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainerBackOffice", "TrainerBackOffice\TrainerBackOffice.csproj", "{88A8F33E-B61E-42FE-A186-DD10FC83DF87}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TrainerFrontOffice", "TrainerFrontOffice\", "{99FFE00F-5494-45B0-97E2-96B2FAA70560}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -29,7 +29,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TrainerFrontOffice", "Train
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainerClasses", "TrainerClasses\TrainerClasses.csproj", "{70049440-0BED-4478-8A4E-3CCCD9EB6C29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trainer Testing", "Trainer Testing\Trainer Testing.csproj", "{73E77330-969B-4DA1-9194-3802EC742CA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainerTesting", "Trainer Testing\TrainerTesting.csproj", "{73E77330-969B-4DA1-9194-3802EC742CA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
