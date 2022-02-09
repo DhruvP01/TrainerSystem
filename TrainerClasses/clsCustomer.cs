@@ -154,18 +154,35 @@ namespace TrainerClasses
 
         public bool Find(int CustomerNo)
         {
-            // set the private data members to the test data value
-            mCustomerNo = 21;
-            mAddress = "Test Address";
-            mActive = true;
-            mDateAdded = Convert.ToDateTime("16/9/2015");
-            mName = "Test Name";
-            mPostCode = "XXX XXX";
-            mTelephone = "02345678901";
-            mEmail = "Test Email";
-            mDateOfBirth = Convert.ToDateTime("09/02/1998");
-            // always return true
-            return true;
+            // create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            // add the parameter for the customer no to search for
+            DB.AddParameter("@CustomerNo", CustomerNo);
+            // execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerNo");
+            // if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                // copy the data from the database to the private data members
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DatedAdded"]);
+                mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mTelephone = Convert.ToString(DB.DataTable.Rows[0]["Telephone"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                // return that everything worked okay
+                return true;
+            } 
+            // if no record was found
+            else
+            {
+                // return false indicating a problem
+                return false;
+            }
+            
         }
     }
 }
