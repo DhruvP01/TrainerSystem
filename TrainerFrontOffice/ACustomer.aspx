@@ -9,18 +9,16 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblCustomerNo" runat="server" Text="CustomerNo"></asp:Label>
-            <asp:TextBox ID="txtCustomerNo" runat="server"></asp:TextBox>
         </div>
         <p>
             <asp:Label ID="lblCustomerName" runat="server" Text="Customer Name"></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCustomerName" runat="server"></asp:TextBox>
         </p>
         <asp:Label ID="lblCustomerAddress" runat="server" Text="Customer Address"></asp:Label>
         <asp:TextBox ID="txtCustomerAddress" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="lblPostcode" runat="server" Text="Customer Postcode"></asp:Label>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPostcode" runat="server"></asp:TextBox>
         </p>
         <asp:Label ID="lblCustomerTelephone" runat="server" Text="Customer Telephone"></asp:Label>
         <asp:TextBox ID="txtCustomerTelephone" runat="server"></asp:TextBox>
