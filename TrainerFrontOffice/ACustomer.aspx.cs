@@ -28,12 +28,38 @@ public partial class ACustomer : System.Web.UI.Page
         // capture the customer email address
         ACustomer.Email = txtCustomerEmail.Text;
         // capture customer dob
-        // ACustomer.DateOfBirth = txtDateOfBirth.Text = ACustomer.ToString("dd/mm/yyyy");
-        // capture the data added
-        //ACustomer.DateAdded = txtDateAdded.Text;
+        txtDOB.Text = ACustomer.DateOfBirth.ToString();
+        // capture the date added
+        txtDateAdded.Text = ACustomer.DateAdded.ToString();
         // store the customer name in the session object
         Session["ACustomer"] = ACustomer;
         // redirect to the viewer page
         Response.Redirect("CustomerViewer.aspx");
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        // create an instance of the customer class
+        clsCustomer ACustomer = new clsCustomer();
+        // create a variable to store the primary key
+        Int32 CustomerNo;
+        // variable to store the result of the find operation 
+        Boolean Found = false;
+        // get the primary key entered by the user
+        CustomerNo = Convert.ToInt32(txtCustomerNo.Text);
+        // find the record 
+        Found = ACustomer.Find(CustomerNo);
+        // if found
+        if (Found == true)
+        {
+            // display the values of the properties in the form 
+            txtCustomerName.Text = ACustomer.Name;
+            txtCustomerAddress.Text = ACustomer.Address;
+            txtPostcode.Text = ACustomer.PostCode;
+            txtCustomerTelephone.Text = ACustomer.Telephone;
+            txtCustomerEmail.Text = ACustomer.Email;
+            txtDOB.Text = ACustomer.DateOfBirth.ToString();
+            txtDateAdded.Text = ACustomer.DateAdded.ToString();
+        }
     }
 }

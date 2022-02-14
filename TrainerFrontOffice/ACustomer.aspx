@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="lblCustomerNo" runat="server" Text="Customer No"></asp:Label>
+            <asp:TextBox ID="txtCustomerNo" runat="server"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         </div>
         <p>
             <asp:Label ID="lblCustomerName" runat="server" Text="Customer Name"></asp:Label>
@@ -27,7 +30,7 @@
             <asp:TextBox ID="txtCustomerEmail" runat="server"></asp:TextBox>
         </p>
         <asp:Label ID="lblDateOfBirth" runat="server" Text="Customer DOB"></asp:Label>
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="lblDateAdded" runat="server" Text="Date Added"></asp:Label>
             <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
