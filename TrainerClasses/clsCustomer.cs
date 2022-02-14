@@ -165,14 +165,14 @@ namespace TrainerClasses
             {
                 // copy the data from the database to the private data members
                 mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
-                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
-                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DatedAdded"]);
-                mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
-                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
-                mTelephone = Convert.ToString(DB.DataTable.Rows[0]["Telephone"]);
-                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
-                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["CustomerPostCode"]);
+                mTelephone = Convert.ToString(DB.DataTable.Rows[0]["CustomerTelephone"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["CustomerEmail"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDOB"]);
                 // return that everything worked okay
                 return true;
             } 
