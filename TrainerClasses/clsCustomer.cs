@@ -54,6 +54,21 @@ namespace TrainerClasses
                 mCustomerNo = value;
             }
         }
+
+        public string Valid(string customerName, string customerAddress, string customerTown, string customerPostCode, string customerEmail, string customerTelephone, string dateAdded)
+        {
+            // create a string variable to store the error
+            String Error = "";
+            // if CustomerName is blank
+            if (customerName.Length == 0)
+            {
+                // record the error
+                Error = Error + "The customer name may not be blank : ";
+            }
+            // return any error messages
+            return Error;
+        }
+
         // private data member for the customer name property
         private string mName;
         // public property for the customer name 

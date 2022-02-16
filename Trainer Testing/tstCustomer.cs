@@ -7,13 +7,65 @@ namespace Trainer_Testing
     [TestClass]
     public class tstCustomer
     {
-        [TestMethod]
+        // good test data
+        // create some test data to pass to the method
+        string CustomerName = "Harry";
+        string CustomerAddress = "12 London Way";
+        string CustomerTown = "London";
+        string CustomerPostCode = "LD2 1AS";
+        string CustomerEmail = "Harry22@googlemail.com";
+        string CustomerTelephone = "07112234567";
+        string DateAdded = DateTime.Now.Date.ToString();
+        
+         [TestMethod]
         public void InstanceOK()
         {
             // create an instance of the class we want to create 
             clsCustomer ACustomer = new clsCustomer();
             // test to see that it exists 
             Assert.IsNotNull(ACustomer);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            // create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // string variable to store any error message
+            String Error = "";
+            // invoke the method
+            Error = ACustomer.Valid(CustomerName, CustomerAddress, CustomerTown, CustomerPostCode, CustomerEmail, CustomerTelephone, DateAdded);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerNameMinLessOne()
+        {
+            // create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            string CustomerName = ""; // this should trigger an error
+            // invoke the method
+            Error = ACustomer.Valid(CustomerName, CustomerAddress, CustomerTown, CustomerPostCode, CustomerEmail, CustomerTelephone, DateAdded);
+            // test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerNameMin()
+        {
+            // create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // string variable to store any error message
+            String Error = "";
+            // create some test data to pass to the method
+            string CustomerName = "a"; // this should be okay
+            // invoke the method
+            Error = ACustomer.Valid(CustomerName, CustomerAddress, CustomerTown, CustomerPostCode, CustomerEmail, CustomerTelephone, DateAdded);
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
         }
 
         [TestMethod]
