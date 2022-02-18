@@ -59,12 +59,105 @@ namespace TrainerClasses
         {
             // create a string variable to store the error
             String Error = "";
+            // create a temporary variable to store date values
+            DateTime DateTemp;
             // if CustomerName is blank
             if (customerName.Length == 0)
             {
                 // record the error
                 Error = Error + "The customer name may not be blank : ";
             }
+            // if the customer name is greater than 50 characters
+            if (customerName.Length > 50)
+            {
+                // record the error
+                Error = Error + "The customer name must be less than 50 characters : ";
+            }
+            try
+            {
+                // copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    // record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+
+                }
+            }
+            catch
+            {
+                // record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+            // if CustomerPostCode is blank
+            if (customerPostCode.Length == 0)
+            {
+                // record the error
+                Error = Error + "The customer PostCode may not be blank : ";
+            }
+            // if the customer Postcode is greater than 9 characters
+            if (customerPostCode.Length > 9)
+            {
+                // record the error
+                Error = Error + "The customer PostCode must be less than 9 characters : ";
+            }
+            // if CustomerAddress is blank
+            if (customerAddress.Length == 0)
+            {
+                // record the error
+                Error = Error + "The customer address may not be blank : ";
+            }
+            // if the customer address is greater than 50 characters
+            if (customerAddress.Length > 50)
+            {
+                // record the error
+                Error = Error + "The customer address must be less than 50 characters : ";
+            }
+            //is the town blank
+            if (customerTown.Length == 0)
+            {
+                //record the error
+                Error = Error + "The customer town may not be blank : ";
+            }
+            //if the town is too long
+            if (customerTown.Length > 50)
+            {
+                //record the error
+                Error = Error + "The customer town must be less than 50 characters : ";
+            }
+            //is the customer email  blank
+            if (customerEmail.Length == 0)
+            {
+                //record the error
+                Error = Error + "The customer email may not be blank : ";
+            }
+            //if the customer email is too long
+            if (customerEmail.Length > 50)
+            {
+                //record the error
+                Error = Error + "The customer email must be less than 50 characters : ";
+            }
+           // is the customer telephone blank 
+           if (customerTelephone.Length == 0)
+            {
+                // record the error 
+                Error = Error + "The customer telephone may not be blank : ";
+            }
+           // if the customer telephone is too long
+           if(customerTelephone.Length > 11)
+            {
+                // record the error
+                Error = Error + "The customer telephone must be 11 characters : ";
+            }
+
+
+
             // return any error messages
             return Error;
         }
