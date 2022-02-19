@@ -259,6 +259,22 @@ namespace TrainerClasses
                 mDateOfBirth = value;
             }
         }
+        // private data member for the customer town 
+        private string mTown;
+        // public property for the customer town 
+        public string Town
+        {
+            get
+            {
+                // return the private data
+                return mTown;
+            }
+            set
+            {
+                // set the private data
+                mTown = value;
+            }
+        }
 
         public bool Find(int CustomerNo)
         {
@@ -274,6 +290,7 @@ namespace TrainerClasses
                 // copy the data from the database to the private data members
                 mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
+                mTown = Convert.ToString(DB.DataTable.Rows[0]["CustomerTown"]);
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 mName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
