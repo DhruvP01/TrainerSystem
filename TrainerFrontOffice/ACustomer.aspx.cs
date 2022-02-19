@@ -15,26 +15,56 @@ public partial class ACustomer : System.Web.UI.Page
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
-        // create an instance of clsCustomer
+        // create a new instance of clsCustomer
         clsCustomer ACustomer = new clsCustomer();
-        // capture the customer name
-        ACustomer.Name = txtCustomerName.Text;
+        // caputure the customer name 
+        string CustomerName = txtCustomerName.Text;
         // capture the customer address
-        ACustomer.Address = txtCustomerAddress.Text;
+        string CustomerAddress = txtCustomerAddress.Text;
+        // capture the customer town
+        string CustomerTown = txtCustomerTown.Text;
         // capture the customer postcode
-        ACustomer.PostCode = txtPostcode.Text;
+        string CustomerPostCode = txtPostcode.Text;
         // capture the customer telephone
-        ACustomer.Telephone = txtCustomerTelephone.Text;
-        // capture the customer email address
-        ACustomer.Email = txtCustomerEmail.Text;
-        // capture customer dob
-        txtDOB.Text = ACustomer.DateOfBirth.ToString();
+        string CustomerTelephone = txtCustomerTelephone.Text;
+        // capture the customer email 
+        string CustomerEmail = txtCustomerEmail.Text;
+        // capture the customer dob
+        string DateOfBirth = txtDOB.Text;
         // capture the date added
-        txtDateAdded.Text = ACustomer.DateAdded.ToString();
-        // store the customer name in the session object
-        Session["ACustomer"] = ACustomer;
-        // redirect to the viewer page
-        Response.Redirect("CustomerViewer.aspx");
+        string DateAdded = txtDateAdded.Text;
+        // variable to store any error messages
+        string Error = "";
+        // validate the data
+        Error = ACustomer.Valid(CustomerName, CustomerAddress, CustomerTown, CustomerPostCode, CustomerEmail, CustomerTelephone, DateAdded);
+        if (Error == "")
+        {
+            // capture the customer name 
+            ACustomer.Name = CustomerName;
+            // capture the customer address
+            ACustomer.Address = CustomerAddress;
+            // capture the customer town 
+            ACustomer.Town = CustomerTown;
+            // capture the customer postcode
+            ACustomer.PostCode = CustomerPostCode;
+            // capture the customer telephone
+            ACustomer.Telephone = CustomerTelephone;
+            // capture the customer email 
+            ACustomer.Email = CustomerEmail;
+            // capture the customer dob 
+            ACustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            // capture the customer date added
+            ACustomer.DateAdded = Convert.ToDateTime(DateAdded);
+            // store the customer in the session object
+            Session["ACustomer"] = ACustomer;
+            // redirect to the viewer page
+            Response.Redirect("CustomerViewer.aspx");
+        }
+        else
+        {
+            // display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

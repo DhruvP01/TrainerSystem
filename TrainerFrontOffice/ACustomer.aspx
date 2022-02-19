@@ -19,6 +19,8 @@
         </p>
         <asp:Label ID="lblCustomerAddress" runat="server" Text="Customer Address"></asp:Label>
         <asp:TextBox ID="txtCustomerAddress" runat="server"></asp:TextBox>
+        <asp:Label ID="lblCustomerTown" runat="server" Text="Customer Town"></asp:Label>
+        <asp:TextBox ID="txtCustomerTown" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="lblPostcode" runat="server" Text="Customer Postcode"></asp:Label>
             <asp:TextBox ID="txtPostcode" runat="server"></asp:TextBox>
