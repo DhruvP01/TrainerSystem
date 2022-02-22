@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using TrainerClasses;
 
 namespace Trainer_Testing
 {
@@ -14,7 +15,4 @@ namespace Trainer_Testing
         }
     }
 
-    class ClsStaff
-    {
-    }
 }
