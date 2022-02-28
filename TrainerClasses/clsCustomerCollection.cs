@@ -24,16 +24,16 @@ namespace TrainerClasses
                 // create a blank customer
                 clsCustomer ACustomer = new clsCustomer();
                 // read the fields from the current record
-                ACustomer.CustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
-                ACustomer.Address = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
-                ACustomer.Town = Convert.ToString(DB.DataTable.Rows[0]["CustomerTown"]);
-                ACustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
-                ACustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
-                ACustomer.Name = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
-                ACustomer.PostCode = Convert.ToString(DB.DataTable.Rows[0]["CustomerPostCode"]);
-                ACustomer.Telephone = Convert.ToString(DB.DataTable.Rows[0]["CustomerTelephone"]);
-                ACustomer.Email = Convert.ToString(DB.DataTable.Rows[0]["CustomerEmail"]);
-                ACustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDOB"]);
+                ACustomer.CustomerNo = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerNo"]);
+                ACustomer.Address = Convert.ToString(DB.DataTable.Rows[Index]["CustomerAddress"]);
+                ACustomer.Town = Convert.ToString(DB.DataTable.Rows[Index]["CustomerTown"]);
+                ACustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                ACustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
+                ACustomer.Name = Convert.ToString(DB.DataTable.Rows[Index]["CustomerName"]);
+                ACustomer.PostCode = Convert.ToString(DB.DataTable.Rows[Index]["CustomerPostCode"]);
+                ACustomer.Telephone = Convert.ToString(DB.DataTable.Rows[Index]["CustomerTelephone"]);
+                ACustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["CustomerEmail"]);
+                ACustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDOB"]);
                 // add the record to the private data member
                 mCustomerList.Add(ACustomer);
                 // point at the next record
