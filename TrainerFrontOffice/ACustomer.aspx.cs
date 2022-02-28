@@ -13,58 +13,13 @@ public partial class ACustomer : System.Web.UI.Page
 
     }
 
+    // event handler for the ok button
     protected void btnOk_Click(object sender, EventArgs e)
     {
-        // create a new instance of clsCustomer
-        clsCustomer ACustomer = new clsCustomer();
-        // caputure the customer name 
-        string CustomerName = txtCustomerName.Text;
-        // capture the customer address
-        string CustomerAddress = txtCustomerAddress.Text;
-        // capture the customer town
-        string CustomerTown = txtCustomerTown.Text;
-        // capture the customer postcode
-        string CustomerPostCode = txtPostcode.Text;
-        // capture the customer telephone
-        string CustomerTelephone = txtCustomerTelephone.Text;
-        // capture the customer email 
-        string CustomerEmail = txtCustomerEmail.Text;
-        // capture the customer dob
-        string DateOfBirth = txtDOB.Text;
-        // capture the date added
-        string DateAdded = txtDateAdded.Text;
-        // variable to store any error messages
-        string Error = "";
-        // validate the data
-        Error = ACustomer.Valid(CustomerName, CustomerAddress, CustomerTown, CustomerPostCode, CustomerEmail, CustomerTelephone, DateAdded);
-        if (Error == "")
-        {
-            // capture the customer name 
-            ACustomer.Name = CustomerName;
-            // capture the customer address
-            ACustomer.Address = CustomerAddress;
-            // capture the customer town 
-            ACustomer.Town = CustomerTown;
-            // capture the customer postcode
-            ACustomer.PostCode = CustomerPostCode;
-            // capture the customer telephone
-            ACustomer.Telephone = CustomerTelephone;
-            // capture the customer email 
-            ACustomer.Email = CustomerEmail;
-            // capture the customer dob 
-            ACustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
-            // capture the customer date added
-            ACustomer.DateAdded = Convert.ToDateTime(DateAdded);
-            // store the customer in the session object
-            Session["ACustomer"] = ACustomer;
-            // redirect to the viewer page
-            Response.Redirect("CustomerViewer.aspx");
-        }
-        else
-        {
-            // display the error message
-            lblError.Text = Error;
-        }
+        // add the new record
+        Add();
+        // all done so redirect to the main page
+        Response.Redirect("Default.aspx");
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -85,11 +40,41 @@ public partial class ACustomer : System.Web.UI.Page
             // display the values of the properties in the form 
             txtCustomerName.Text = ACustomer.Name;
             txtCustomerAddress.Text = ACustomer.Address;
+            txtCustomerTown.Text = ACustomer.Town;
             txtPostcode.Text = ACustomer.PostCode;
             txtCustomerTelephone.Text = ACustomer.Telephone;
             txtCustomerEmail.Text = ACustomer.Email;
             txtDOB.Text = ACustomer.DateOfBirth.ToString();
             txtDateAdded.Text = ACustomer.DateAdded.ToString();
+        }
+    }
+
+    // function for adding new records
+    void Add()
+    {
+        // create an instance of the customer book
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        // validate the data on the web form
+        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerName.Text, txtCustomerAddress.Text, txtCustomerTown.Text, txtPostcode.Text, txtCustomerTelephone.Text, txtCustomerEmail.Text, txtDateAdded.Text);
+        // if the data is OK then add it to the object
+        if (Error == "")
+        {
+            // get the data entered by the user
+            CustomerBook.ThisCustomer.Name = txtCustomerName.Text;
+            CustomerBook.ThisCustomer.Address = txtCustomerAddress.Text;
+            CustomerBook.ThisCustomer.Town = txtCustomerTown.Text;
+            CustomerBook.ThisCustomer.PostCode = txtPostcode.Text;
+            CustomerBook.ThisCustomer.Telephone = txtCustomerTelephone.Text;
+            CustomerBook.ThisCustomer.Email = txtCustomerEmail.Text;
+            CustomerBook.ThisCustomer.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+            CustomerBook.ThisCustomer.Active = CheckBoxActive.Checked;
+            // add the record
+            CustomerBook.Add();
+        }
+        else
+        {
+            // report an error
+            lblError.Text = "There were problems with the data entered " + Error;
         }
     }
 }

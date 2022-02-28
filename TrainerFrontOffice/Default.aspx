@@ -20,7 +20,7 @@
         <asp:Button ID="btnApply" runat="server" Text="Apply" />
         <asp:Button ID="btnDisplayAll" runat="server" Text="Display All" />
         <p>
-            <asp:Button ID="btnAdd" runat="server" Text="Add" />
+            <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
             <asp:Button ID="btnEdit" runat="server" Text="Edit" />
             <asp:Button ID="btnDelete" runat="server" Text="Delete" />
         </p>

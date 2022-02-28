@@ -30,4 +30,12 @@ public partial class _Default : System.Web.UI.Page
         // bind the data to the list
         lstCustomers.DataBind();
     }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        // store -1 into the session object to indicate this is a new record
+        Session["CustomerNo"] = -1;
+        // redirect to the data entry page
+        Response.Redirect("ACustomer.aspx");
+    }
 }
