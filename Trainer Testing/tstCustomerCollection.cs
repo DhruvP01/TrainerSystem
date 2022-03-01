@@ -134,7 +134,86 @@ namespace Trainer_Testing
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
 
-      
+      [TestMethod]
+      public void DeleteMethodOK()
+        {
+            // create an instance of the class we want to create 
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            // create the item of the test data 
+            clsCustomer TestItem = new clsCustomer();
+            // var to store the primary key
+            Int32 PrimaryKey = 0;
+            // set its properties
+            TestItem.Active = true;
+            TestItem.CustomerNo = 1;
+            TestItem.Name = "Harry";
+            TestItem.Address = "12 Harrod Street";
+            TestItem.Town = "Birmingham";
+            TestItem.PostCode = "BR1 1EW";
+            TestItem.Email = "Harry2@mail.com";
+            TestItem.Telephone = "02358543784";
+            TestItem.DateOfBirth = DateTime.Now.Date;
+            TestItem.DateAdded = DateTime.Now.Date;
+            // set ThisCustomer to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            // add the record
+            PrimaryKey = AllCustomers.Add();
+            // set the primary key of the test data
+            TestItem.CustomerNo = PrimaryKey;
+            // find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            // delete the record
+            AllCustomers.Delete();
+            // now find the record
+            Boolean Found = AllCustomers.ThisCustomer.Find(PrimaryKey);
+            // test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            // Create an instance of the class we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            // create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            // var to store the primary key
+            Int32 PrimaryKey = 0;
+            // set its properties
+            TestItem.Active = true;
+            TestItem.Name = "Harry";
+            TestItem.Address = "12 Harrod Street";
+            TestItem.Town = "Birmingham";
+            TestItem.PostCode = "BR1 1EW";
+            TestItem.Email = "Harry2@mail.com";
+            TestItem.Telephone = "02358543784";
+            TestItem.DateOfBirth = DateTime.Now.Date;
+            TestItem.DateAdded = DateTime.Now.Date;
+            // set the ThisCustomer to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            // add the record
+            PrimaryKey = AllCustomers.Add();
+            // set the primary key of the test data
+            TestItem.CustomerNo = PrimaryKey;
+            // modify the test data
+            TestItem.Active = false;
+            TestItem.Name = "Danny";
+            TestItem.Address = "31 West Street";
+            TestItem.Town = "Bolton";
+            TestItem.PostCode = "BL2 3TG";
+            TestItem.Email = "Dan21@lookmail.com";
+            TestItem.Telephone = "07090321458";
+            TestItem.DateOfBirth = DateTime.Now.Date;
+            TestItem.DateAdded = DateTime.Now.Date;
+            // set the record based on the new test data
+            AllCustomers.ThisCustomer = TestItem;
+            // update the record
+            AllCustomers.Update();
+            // find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            // test to see ThisCustomer matches the test data
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }
 
     }
 }

@@ -19,10 +19,11 @@
         </p>
         <asp:Button ID="btnApply" runat="server" Text="Apply" />
         <asp:Button ID="btnDisplayAll" runat="server" Text="Display All" />
+        <asp:Label ID="lblError" runat="server"></asp:Label>
         <p>
             <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
             <asp:Button ID="btnEdit" runat="server" Text="Edit" />
-            <asp:Button ID="btnDelete" runat="server" Text="Delete" />
+            <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
         </p>
     </form>
 </body>
