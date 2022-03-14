@@ -13,16 +13,12 @@ public partial class AnStaff : System.Web.UI.Page
 
     }
 
-    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-    {
-
-    }
-
     protected void btnOK_Click(object sender, EventArgs e)
     {
         ClsStaff AnStaff = new ClsStaff();
         AnStaff.StaffNo = txtStaffNo.Text;
         Session["AnStaff"] = AnStaff;
         Response.Redirect("StaffViewer.aspx");
+
     }
 }
