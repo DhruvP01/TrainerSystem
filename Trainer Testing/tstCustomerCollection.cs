@@ -215,5 +215,61 @@ namespace Trainer_Testing
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
 
+       [TestMethod]
+       public void ReportByPostCodeMethodOK()
+        {
+            // create an instance of the class containing unfilteted results
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            // create an instance of the filtered data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            // apply a blank string (should return all records);
+            FilteredCustomers.ReportByPostCode("");
+            // test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
+        }
+
+        [TestMethod]
+        public void ReportByPostCodeNoneFound()
+        {
+            // create an instance of the filtered data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            // apply a postcode that does not exist
+            FilteredCustomers.ReportByPostCode("xxx xxx");
+            // test to see that there are no records
+            Assert.AreEqual(0, FilteredCustomers.Count);
+
+        }
+
+        [TestMethod]
+        public void ReportByPostCodeTestDataFound()
+        {
+            // create an instance of the filterted data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            // var to store the outcome
+            Boolean OK = true;
+            // apply a post code that does not exist
+            FilteredCustomers.ReportByPostCode("LL1 2WF");
+            // check that the corret number of records are found
+            if (FilteredCustomers.Count == 2)
+            {
+                // check that the first record is ID 3
+                if (FilteredCustomers.CustomerList[0].CustomerNo != 3)
+                {
+                    OK = false;
+                }
+                // check that the first record is ID 4
+                if(FilteredCustomers.CustomerList[1].CustomerNo != 4)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            // tese to see that the there are no records
+            Assert.IsTrue(OK);
+        }
+
     }
 }

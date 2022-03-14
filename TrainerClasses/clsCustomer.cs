@@ -309,5 +309,14 @@ namespace TrainerClasses
             }
             
         }
+
+        public void Update()
+        {
+            // update an existing record based on the values of thisCustomer
+            // connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            // set the parameters for the stored procedure
+            //DB.AddParameter("@CustomerNo", )
+        }
     }
 }

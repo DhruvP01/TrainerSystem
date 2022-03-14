@@ -8,18 +8,39 @@ using TrainerClasses;
 
 public partial class ACustomer : System.Web.UI.Page
 {
+    // variable to store the primary key with page level scope
+    Int32 CustomerNo;
+    // event handler for the page load event
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        // get the number of the customers to be processed
+        CustomerNo = Convert.ToInt32(Session["CustomerNo"]);
+        if (IsPostBack == false)
+        {
+            // populate the list of customers
+            DisplayCustomers();
+            // if this not a new record
+            if (CustomerNo != -1)
+            {
+                // display the current data for the record
+                DisplayCustomers();
+            }
+        }
     }
 
     // event handler for the ok button
     protected void btnOk_Click(object sender, EventArgs e)
     {
-        // add the new record
-        Add();
-        // all done so redirect to the main page
-        Response.Redirect("Default.aspx");
+       if (CustomerNo == -1)
+        {
+            // add the new record
+            Add();
+        }
+       else
+        {
+            // update the record
+            Update();
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -76,5 +97,59 @@ public partial class ACustomer : System.Web.UI.Page
             // report an error
             lblError.Text = "There were problems with the data entered " + Error;
         }
+    }
+
+    // function for updating records
+    void Update()
+    {
+        //  create an instance of the customer book 
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        // validate the data on the web form
+        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerName.Text, txtCustomerAddress.Text, txtCustomerTown.Text, txtPostcode.Text, txtCustomerTelephone.Text, txtCustomerEmail.Text, txtDateAdded.Text);
+        // if the data is OK then add it to the object
+        if (Error == "")
+        {
+            // find the record to update
+            CustomerBook.ThisCustomer.Find(CustomerNo);
+            // get the data entered by the user
+            CustomerBook.ThisCustomer.Name = txtCustomerName.Text;
+            CustomerBook.ThisCustomer.Address = txtCustomerAddress.Text;
+            CustomerBook.ThisCustomer.Town = txtCustomerTown.Text;
+            CustomerBook.ThisCustomer.PostCode = txtPostcode.Text;
+            CustomerBook.ThisCustomer.Telephone = txtCustomerTelephone.Text;
+            CustomerBook.ThisCustomer.Email = txtCustomerEmail.Text;
+            CustomerBook.ThisCustomer.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+            CustomerBook.ThisCustomer.Active = CheckBoxActive.Checked;
+            // update the record
+            CustomerBook.Update();
+            // redirect to the main page
+            Response.Redirect("Default.aspx");
+          
+        }
+        else
+        {
+            // report an error
+            lblError.Text = "There were problems with the data entered" + Error;
+        }
+
+    }
+
+    void DisplayCustomers()
+    {
+        // create an instance of the customer book
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        // find the record to update
+        CustomerBook.ThisCustomer.Find(CustomerNo);
+        // display the data for this record
+        txtCustomerName.Text = CustomerBook.ThisCustomer.Name;
+        txtCustomerAddress.Text = CustomerBook.ThisCustomer.Address;
+        txtCustomerTown.Text = CustomerBook.ThisCustomer.Town;
+        txtPostcode.Text = CustomerBook.ThisCustomer.PostCode;
+        txtCustomerTelephone.Text = CustomerBook.ThisCustomer.Telephone;
+        txtCustomerEmail.Text = CustomerBook.ThisCustomer.Email;
+        txtDOB.Text = CustomerBook.ThisCustomer.DateOfBirth.ToString();
+        txtDateAdded.Text = CustomerBook.ThisCustomer.DateAdded.ToString();
+        CheckBoxActive.Checked = CustomerBook.ThisCustomer.Active;
+
     }
 }
