@@ -861,7 +861,7 @@ namespace Trainer_Testing
             // Boolean variable to store the results of the validation
             Boolean Found = false;
             // create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             // invoke the method
             Found = ACustomer.Find(CustomerNo);
             // test to see if the result is true
@@ -878,11 +878,11 @@ namespace Trainer_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the customer no
-            if (ACustomer.CustomerNo != 1)
+            if (ACustomer.CustomerNo != 2)
             {
                 OK = false;
             }
@@ -900,11 +900,11 @@ namespace Trainer_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.Address != "8 Harrow Road")
+            if (ACustomer.Address != "14 Leicester Way")
             {
                 OK = false;
             }
@@ -922,7 +922,7 @@ namespace Trainer_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
@@ -944,7 +944,7 @@ namespace Trainer_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
@@ -966,11 +966,11 @@ namespace Trainer_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.Name != "Aaron")
+            if (ACustomer.Name != "Max")
             {
                 OK = false;
             }
@@ -989,11 +989,11 @@ namespace Trainer_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.PostCode != "HR1 0EE")
+            if (ACustomer.PostCode != "LE4 5EL")
             {
                 OK = false;
             }
@@ -1011,11 +1011,11 @@ namespace Trainer_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.Telephone != "07125678965")
+            if (ACustomer.Telephone != "07335576891")
             {
                 OK = false;
             }
@@ -1034,11 +1034,11 @@ namespace Trainer_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.Email != "aaron@email.com")
+            if (ACustomer.Email != "Max01@mail.co.uk")
             {
                 OK = false;
             }
@@ -1056,11 +1056,11 @@ namespace Trainer_Testing
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 CustomerNo = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.DateOfBirth != Convert.ToDateTime("12/02/1996"))
+            if (ACustomer.DateOfBirth != Convert.ToDateTime("01/09/2001"))
             {
                 OK = false;
             }

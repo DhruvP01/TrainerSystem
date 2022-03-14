@@ -22,7 +22,7 @@
         <asp:Label ID="lblError" runat="server"></asp:Label>
         <p>
             <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
-            <asp:Button ID="btnEdit" runat="server" Text="Edit" />
+            <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
             <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
         </p>
     </form>
