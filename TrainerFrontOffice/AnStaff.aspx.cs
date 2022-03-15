@@ -16,9 +16,24 @@ public partial class AnStaff : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         ClsStaff AnStaff = new ClsStaff();
-        AnStaff.StaffNo = txtStaffNo.Text;
+        AnStaff.StaffNo = int.Parse(txtStaffNo.Text);
         Session["AnStaff"] = AnStaff;
         Response.Redirect("StaffViewer.aspx");
 
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        ClsStaff AnStaff = new ClsStaff();
+        Int32 StaffNo;
+        Boolean found = false;
+        StaffNo = Convert.ToInt32(txtStaffNo.Text);
+        found = AnStaff.Find(StaffNo);
+        if (found == true)
+        {
+            txtAddress.Text = AnStaff.Address;
+            txtDateAdded.Text = AnStaff.DateAdded.ToString();
+            txtPostCode.Text = AnStaff.PostCode;       
+        }
     }
 }
