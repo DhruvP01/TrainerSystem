@@ -106,13 +106,25 @@ namespace TrainerClasses
 
         public bool Find(int staffNo)
         {
-            mStaffNo = 21;
-            mAddress = "Test Street";
-            mTown = "Test Town";
-            mPostCode = "abc 123";
-            mDateAdded = Convert.ToDateTime("24/09/2019");
-            mActive = true;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffNo", StaffNo);
+            DB.Execute("sproc_tblStaff_FilterByStaffNo");
+            if (DB.Count == 1)
+            {
+                mStaffNo = Convert.ToInt32(DB.DataTable.Rows[0]["StaffNo"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mTown = Convert.ToString(DB.DataTable.Rows[0]["Town"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                return true;
+            }
+        
+            else
+            {
+                return false;
+            }
+
         }
     }
 }
