@@ -73,7 +73,7 @@ namespace Trainer_Testing
         {
             ClsStaff AnStaff = new ClsStaff();
             Boolean found = false;
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 3;
             found = AnStaff.Find(StaffNo);
             Assert.IsTrue(found);
 
@@ -85,9 +85,9 @@ namespace Trainer_Testing
             ClsStaff AnStaff = new ClsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 3;
             found = AnStaff.Find(StaffNo);
-            if (AnStaff.StaffNo != 21)
+            if (AnStaff.StaffNo != 3)
             {
                 OK = false;
             }
@@ -100,9 +100,9 @@ namespace Trainer_Testing
             ClsStaff AnStaff = new ClsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 3;
             found = AnStaff.Find(StaffNo);
-            if (AnStaff.Address != "Test Street")
+            if (AnStaff.Address != "97 Corner Street")
             {
                 OK = false;
             }
@@ -116,9 +116,9 @@ namespace Trainer_Testing
             ClsStaff AnStaff = new ClsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 3;
             found = AnStaff.Find(StaffNo);
-            if (AnStaff.Town != "Test Town")
+            if (AnStaff.Town != "Leicester")
             {
                 OK = false;
             }
@@ -132,9 +132,9 @@ namespace Trainer_Testing
             ClsStaff AnStaff = new ClsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 3;
             found = AnStaff.Find(StaffNo);
-            if (AnStaff.PostCode != "abc 123")
+            if (AnStaff.PostCode != "le1 3g5")
             {
                 OK = false;
             }
@@ -148,9 +148,9 @@ namespace Trainer_Testing
             ClsStaff AnStaff = new ClsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 3;
             found = AnStaff.Find(StaffNo);
-            if (AnStaff.DateAdded != Convert.ToDateTime("24/09/2019"))
+            if (AnStaff.DateAdded != Convert.ToDateTime("09/06/2020"))
             {
                 OK = false;
             }
