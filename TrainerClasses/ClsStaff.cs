@@ -126,5 +126,41 @@ namespace TrainerClasses
             }
 
         }
+
+        public string Valid(string town, string address, string postCode, string dateAdded)
+        {
+            String Error = "";
+            DateTime DateTemp;
+            if (Town.Length == 0)
+            {
+                Error = Error + "The Town Name may not be blank : ";
+            }
+
+            if (Town.Length > 50)
+            {
+                Error = Error + "The Town Name must be less than 50 characters";
+            }
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(DateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            return Error;
+        }
     }
 }
