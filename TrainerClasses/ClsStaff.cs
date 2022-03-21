@@ -160,6 +160,27 @@ namespace TrainerClasses
                 Error = Error + "The date was not a valid date : ";
             }
 
+            if (PostCode.Length == 0)
+            {
+                Error = Error + "The post code may not be blank : ";
+            }
+
+            if (PostCode.Length > 9)
+            {
+                Error = Error + "The post code must less than 9 characters : ";
+            }
+
+            if (Address.Length == 0)
+            {
+                Error = Error + "The Address may not be blank";
+            }
+
+            if (Address.Length > 50)
+            {
+                Error = Error + "The Address must be less than 50 characters : ";
+            }
+
+
             return Error;
         }
     }
