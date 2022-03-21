@@ -7,6 +7,10 @@ namespace Trainer_Testing
     [TestClass]
     public class TstStaff
     {
+        string Town = "Leicester";
+        string Address = "123 Some Road";
+        string PostCode = "LE3 6EL";
+        string DateAdded = DateTime.Now.Date.ToString();
         [TestMethod]
         public void TestMethod1()
         {
@@ -155,6 +159,161 @@ namespace Trainer_Testing
                 OK = false;
             }
             Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void TestMethod14()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMinLessOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Town = "";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TownMin()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Town = "a";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void TownMinPlusOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Town = "aa";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void TownMaxLessOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Town = "";
+            Town = Town.PadRight(49, 'a');
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void TownMax()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Town = "";
+            Town = Town.PadRight(50, 'a');
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMaxPlusOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Town = "";
+            Town = Town.PadRight(51, 'a');
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void TownMid()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Town = "";
+            Town = Town.PadRight(25, 'a');
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string DateAdded = TestDate.ToString();
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string DateAdded = TestDate.ToString();
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string DateAdded = TestDate.ToString();
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string DateAdded = TestDate.ToString();
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string DateAdded = TestDate.ToString();
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void DateAddedInvalidData()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string DateAdded = "This is not a date";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
 
         }
     }
