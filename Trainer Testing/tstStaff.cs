@@ -316,5 +316,149 @@ namespace Trainer_Testing
             Assert.AreNotEqual(Error, "");
 
         }
+        [TestMethod]
+        public void PostCodeMinLessOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string PostCode = "";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PostCodeMin()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string PostCode = "a";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PostCodeMinPlusOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string PostCode = "aa";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PostCodeMaxLessOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string PostCode = "aaaaaaaa";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PostCodeMax()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string PostCode = "aaaaaaaaa";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PostCodeMaxPlusOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string PostCode = "aaaaaaaaaa";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PostCodeMid()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string PostCode = "aaaa";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AddressMinLessOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Address = "";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AddressMin()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Address = "a";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AddressMinPlusOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Address = "aa";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AddressMaxLessOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Address = "";
+            Address = Address.PadRight(49, 'a');
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AddressMax()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Address = "";
+            Address = Address.PadRight(50, 'a');
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AddressMaxPlusOne()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Address = "";
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AddressMid()
+        {
+            ClsStaff AnStaff = new ClsStaff();
+            String Error = "";
+            string Address = "";
+            Address = Address.PadRight(25, 'a');
+            Error = AnStaff.Valid(Town, Address, PostCode, DateAdded);
+            Assert.AreEqual(Error, "");
+
+        }
+
     }
 }
