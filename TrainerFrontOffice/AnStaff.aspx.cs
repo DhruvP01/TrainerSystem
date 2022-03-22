@@ -37,8 +37,8 @@ public partial class AnStaff : System.Web.UI.Page
             lblError.Text = Error;
         }
 
-        AnStaff.StaffNo = int.Parse(txtStaffNo.Text);
-        
+
+
 
     }
 

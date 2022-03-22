@@ -131,12 +131,12 @@ namespace TrainerClasses
         {
             String Error = "";
             DateTime DateTemp;
-            if (Town.Length == 0)
+            if (town.Length == 0)
             {
                 Error = Error + "The Town Name may not be blank : ";
             }
 
-            if (Town.Length > 50)
+            if (town.Length > 50)
             {
                 Error = Error + "The Town Name must be less than 50 characters";
             }
@@ -160,22 +160,22 @@ namespace TrainerClasses
                 Error = Error + "The date was not a valid date : ";
             }
 
-            if (PostCode.Length == 0)
+            if (postCode.Length == 0)
             {
                 Error = Error + "The post code may not be blank : ";
             }
 
-            if (PostCode.Length > 9)
+            if (postCode.Length > 9)
             {
                 Error = Error + "The post code must less than 9 characters : ";
             }
 
-            if (Address.Length == 0)
+            if (address.Length == 0)
             {
                 Error = Error + "The Address may not be blank";
             }
 
-            if (Address.Length > 50)
+            if (address.Length > 50)
             {
                 Error = Error + "The Address must be less than 50 characters : ";
             }
