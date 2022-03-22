@@ -63,9 +63,8 @@ public partial class ACustomer : System.Web.UI.Page
             txtCustomerAddress.Text = ACustomer.Address;
             txtCustomerTown.Text = ACustomer.Town;
             txtPostcode.Text = ACustomer.PostCode;
-            txtCustomerTelephone.Text = ACustomer.Telephone;
             txtCustomerEmail.Text = ACustomer.Email;
-            txtDOB.Text = ACustomer.DateOfBirth.ToString();
+            txtCustomerTelephone.Text = ACustomer.Telephone;
             txtDateAdded.Text = ACustomer.DateAdded.ToString();
         }
     }
@@ -76,7 +75,7 @@ public partial class ACustomer : System.Web.UI.Page
         // create an instance of the customer book
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
         // validate the data on the web form
-        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerName.Text, txtCustomerAddress.Text, txtCustomerTown.Text, txtPostcode.Text, txtCustomerTelephone.Text, txtCustomerEmail.Text, txtDateAdded.Text);
+        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerName.Text, txtCustomerAddress.Text, txtCustomerTown.Text, txtPostcode.Text, txtCustomerEmail.Text ,txtCustomerTelephone.Text, txtDateAdded.Text);
         // if the data is OK then add it to the object
         if (Error == "")
         {
@@ -85,12 +84,14 @@ public partial class ACustomer : System.Web.UI.Page
             CustomerBook.ThisCustomer.Address = txtCustomerAddress.Text;
             CustomerBook.ThisCustomer.Town = txtCustomerTown.Text;
             CustomerBook.ThisCustomer.PostCode = txtPostcode.Text;
-            CustomerBook.ThisCustomer.Telephone = txtCustomerTelephone.Text;
             CustomerBook.ThisCustomer.Email = txtCustomerEmail.Text;
+            CustomerBook.ThisCustomer.Telephone = txtCustomerTelephone.Text;
             CustomerBook.ThisCustomer.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
             CustomerBook.ThisCustomer.Active = CheckBoxActive.Checked;
             // add the record
             CustomerBook.Add();
+            // all done to redirect back to main page
+            Response.Redirect("Default.aspx");
         }
         else
         {
@@ -105,7 +106,7 @@ public partial class ACustomer : System.Web.UI.Page
         //  create an instance of the customer book 
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
         // validate the data on the web form
-        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerName.Text, txtCustomerAddress.Text, txtCustomerTown.Text, txtPostcode.Text, txtCustomerTelephone.Text, txtCustomerEmail.Text, txtDateAdded.Text);
+        String Error = CustomerBook.ThisCustomer.Valid(txtCustomerName.Text, txtCustomerAddress.Text, txtCustomerTown.Text, txtPostcode.Text, txtCustomerEmail.Text, txtCustomerTelephone.Text, txtDateAdded.Text);
         // if the data is OK then add it to the object
         if (Error == "")
         {
@@ -116,8 +117,8 @@ public partial class ACustomer : System.Web.UI.Page
             CustomerBook.ThisCustomer.Address = txtCustomerAddress.Text;
             CustomerBook.ThisCustomer.Town = txtCustomerTown.Text;
             CustomerBook.ThisCustomer.PostCode = txtPostcode.Text;
-            CustomerBook.ThisCustomer.Telephone = txtCustomerTelephone.Text;
             CustomerBook.ThisCustomer.Email = txtCustomerEmail.Text;
+            CustomerBook.ThisCustomer.Telephone = txtCustomerTelephone.Text;
             CustomerBook.ThisCustomer.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
             CustomerBook.ThisCustomer.Active = CheckBoxActive.Checked;
             // update the record
@@ -145,9 +146,8 @@ public partial class ACustomer : System.Web.UI.Page
         txtCustomerAddress.Text = CustomerBook.ThisCustomer.Address;
         txtCustomerTown.Text = CustomerBook.ThisCustomer.Town;
         txtPostcode.Text = CustomerBook.ThisCustomer.PostCode;
-        txtCustomerTelephone.Text = CustomerBook.ThisCustomer.Telephone;
         txtCustomerEmail.Text = CustomerBook.ThisCustomer.Email;
-        txtDOB.Text = CustomerBook.ThisCustomer.DateOfBirth.ToString();
+        txtCustomerTelephone.Text = CustomerBook.ThisCustomer.Telephone;
         txtDateAdded.Text = CustomerBook.ThisCustomer.DateAdded.ToString();
         CheckBoxActive.Checked = CustomerBook.ThisCustomer.Active;
 

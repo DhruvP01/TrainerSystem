@@ -77,7 +77,6 @@ namespace TrainerClasses
             DB.AddParameter("@CustomerPostCode", mThisCustomer.PostCode);
             DB.AddParameter("@CustomerEmail", mThisCustomer.Email);
             DB.AddParameter("@CustomerTelephone", mThisCustomer.Telephone);
-            DB.AddParameter("@CustomerDOB", mThisCustomer.DateOfBirth);
             DB.AddParameter("@DateAdded", mThisCustomer.DateAdded);
             DB.AddParameter("@Active", mThisCustomer.Active);
             // execute the query returning the primary key value
@@ -108,7 +107,6 @@ namespace TrainerClasses
             DB.AddParameter("@CustomerPostCode", mThisCustomer.PostCode);
             DB.AddParameter("@CustomerEmail", mThisCustomer.Email);
             DB.AddParameter("@CustomerTelephone", mThisCustomer.Telephone);
-            DB.AddParameter("@CustomerDOB", mThisCustomer.DateOfBirth);
             DB.AddParameter("@DateAdded", mThisCustomer.DateAdded);
             DB.AddParameter("@Active", mThisCustomer.Active);
             // execute the stored procedure
@@ -156,7 +154,6 @@ namespace TrainerClasses
                 ACustomer.PostCode = Convert.ToString(DB.DataTable.Rows[Index]["CustomerPostCode"]);
                 ACustomer.Telephone = Convert.ToString(DB.DataTable.Rows[Index]["CustomerTelephone"]);
                 ACustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["CustomerEmail"]);
-                ACustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDOB"]);
                 // add the record to the private data member
                 mCustomerList.Add(ACustomer);
                 // point at the next record

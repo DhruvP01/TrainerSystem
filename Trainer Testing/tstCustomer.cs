@@ -840,18 +840,7 @@ namespace Trainer_Testing
             Assert.AreEqual(ACustomer.Email, TestData);
         }
 
-        [TestMethod]
-        public void CustomerDateOfBirthPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsCustomer ACustomer = new clsCustomer();
-            //create some test data to assign to the property
-            DateTime TestData = DateTime.Now.Date;
-            //assign the data to the property
-            ACustomer.DateOfBirth = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(ACustomer.DateOfBirth, TestData);
-        }
+       
 
         [TestMethod]
         public void FindMethodOK()
@@ -1038,7 +1027,7 @@ namespace Trainer_Testing
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the property
-            if (ACustomer.Email != "Max01@mail.co.uk")
+            if (ACustomer.Email != "Max01@gmail.co.uk")
             {
                 OK = false;
             }
@@ -1046,27 +1035,7 @@ namespace Trainer_Testing
             Assert.IsTrue(OK);
         }
 
-        [TestMethod]
-        public void TestCustomerDateOfBirthFound()
-        {
-            //create an instance of the class we want to create
-            clsCustomer ACustomer = new clsCustomer();
-            //boolean variable to store the result of the search
-            Boolean Found = false;
-            //boolean variable to record if data is OK (assume it is)
-            Boolean OK = true;
-            //create some test data to use with the method
-            Int32 CustomerNo = 2;
-            //invoke the method
-            Found = ACustomer.Find(CustomerNo);
-            //check the property
-            if (ACustomer.DateOfBirth != Convert.ToDateTime("01/09/2001"))
-            {
-                OK = false;
-            }
-            //test to see that the result is correct
-            Assert.IsTrue(OK);
-        }
+       
 
 
 

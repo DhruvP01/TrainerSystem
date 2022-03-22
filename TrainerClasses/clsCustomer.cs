@@ -73,40 +73,6 @@ namespace TrainerClasses
                 // record the error
                 Error = Error + "The customer name must be less than 50 characters : ";
             }
-            try
-            {
-                // copy the dateAdded value to the DateTemp variable
-                DateTemp = Convert.ToDateTime(dateAdded);
-                if (DateTemp < DateTime.Now.Date)
-                {
-                    // record the error
-                    Error = Error + "The date cannot be in the past : ";
-                }
-                //check to see if the date is greater than today's date
-                if (DateTemp > DateTime.Now.Date)
-                {
-                    //record the error
-                    Error = Error + "The date cannot be in the future : ";
-
-                }
-            }
-            catch
-            {
-                // record the error
-                Error = Error + "The date was not a valid date : ";
-            }
-            // if CustomerPostCode is blank
-            if (customerPostCode.Length == 0)
-            {
-                // record the error
-                Error = Error + "The customer PostCode may not be blank : ";
-            }
-            // if the customer Postcode is greater than 9 characters
-            if (customerPostCode.Length > 9)
-            {
-                // record the error
-                Error = Error + "The customer PostCode must be less than 9 characters : ";
-            }
             // if CustomerAddress is blank
             if (customerAddress.Length == 0)
             {
@@ -131,6 +97,18 @@ namespace TrainerClasses
                 //record the error
                 Error = Error + "The customer town must be less than 50 characters : ";
             }
+            // if CustomerPostCode is blank
+            if (customerPostCode.Length == 0)
+            {
+                // record the error
+                Error = Error + "The customer PostCode may not be blank : ";
+            }
+            // if the customer Postcode is greater than 9 characters
+            if (customerPostCode.Length > 9)
+            {
+                // record the error
+                Error = Error + "The customer PostCode must be less than 9 characters : ";
+            }
             //is the customer email  blank
             if (customerEmail.Length == 0)
             {
@@ -143,20 +121,40 @@ namespace TrainerClasses
                 //record the error
                 Error = Error + "The customer email must be less than 50 characters : ";
             }
-           // is the customer telephone blank 
-           if (customerTelephone.Length == 0)
+            // is the customer telephone blank 
+            if (customerTelephone.Length == 0)
             {
                 // record the error 
                 Error = Error + "The customer telephone may not be blank : ";
             }
-           // if the customer telephone is too long
-           if(customerTelephone.Length > 11)
+            // if the customer telephone is too long
+            if (customerTelephone.Length > 11)
             {
                 // record the error
                 Error = Error + "The customer telephone must be 11 characters : ";
             }
+            try
+            {
+                // copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    // record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
 
-
+                }
+            }
+            catch
+            {
+                // record the error
+                Error = Error + "The date was not a valid date : ";
+            }
 
             // return any error messages
             return Error;
@@ -243,22 +241,7 @@ namespace TrainerClasses
                 mEmail = value;
             }
         }
-        // private data member for the customer dob
-        private DateTime mDateOfBirth;
-        // public property for the customer dob
-        public DateTime DateOfBirth
-        {
-            get
-            {
-                //return the private data
-                return mDateOfBirth;
-            }
-            set
-            {
-                //set the private data
-                mDateOfBirth = value;
-            }
-        }
+        
         // private data member for the customer town 
         private string mTown;
         // public property for the customer town 
@@ -289,15 +272,17 @@ namespace TrainerClasses
             {
                 // copy the data from the database to the private data members
                 mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
                 mTown = Convert.ToString(DB.DataTable.Rows[0]["CustomerTown"]);
-                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
-                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
-                mName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
                 mPostCode = Convert.ToString(DB.DataTable.Rows[0]["CustomerPostCode"]);
-                mTelephone = Convert.ToString(DB.DataTable.Rows[0]["CustomerTelephone"]);
                 mEmail = Convert.ToString(DB.DataTable.Rows[0]["CustomerEmail"]);
-                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDOB"]);
+                mTelephone = Convert.ToString(DB.DataTable.Rows[0]["CustomerTelephone"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["CustomerPostCode"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]); 
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+               
+            
                 // return that everything worked okay
                 return true;
             } 
@@ -310,13 +295,6 @@ namespace TrainerClasses
             
         }
 
-        public void Update()
-        {
-            // update an existing record based on the values of thisCustomer
-            // connect to the database
-            clsDataConnection DB = new clsDataConnection();
-            // set the parameters for the stored procedure
-            //DB.AddParameter("@CustomerNo", )
-        }
+       
     }
 }

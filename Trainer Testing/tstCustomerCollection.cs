@@ -37,7 +37,6 @@ namespace Trainer_Testing
             TestItem.PostCode = "LE4 1RE";
             TestItem.Email = "Harry2@mail.com";
             TestItem.Telephone = "02358543784";
-            TestItem.DateOfBirth = DateTime.Now.Date;
             TestItem.DateAdded = DateTime.Now.Date;
             // add the item to the test list
             TestList.Add(TestItem);
@@ -64,7 +63,6 @@ namespace Trainer_Testing
             TestCustomer.PostCode = "LE4 1RE";
             TestCustomer.Email = "Harry2@mail.com";
             TestCustomer.Telephone = "02358543784";
-            TestCustomer.DateOfBirth = DateTime.Now.Date;
             TestCustomer.DateAdded = DateTime.Now.Date;
             // assign the data to the property
             AllCustomers.ThisCustomer = TestCustomer;
@@ -92,7 +90,6 @@ namespace Trainer_Testing
             TestItem.PostCode = "LE4 1RE";
             TestItem.Email = "Harry2@mail.com";
             TestItem.Telephone = "02358543784";
-            TestItem.DateOfBirth = DateTime.Now.Date;
             TestItem.DateAdded = DateTime.Now.Date;
             // add the item to the test list
             TestList.Add(TestItem);
@@ -120,7 +117,6 @@ namespace Trainer_Testing
             TestItem.PostCode = "BR1 1EW";
             TestItem.Email = "Harry2@mail.com";
             TestItem.Telephone = "02358543784";
-            TestItem.DateOfBirth = DateTime.Now.Date;
             TestItem.DateAdded = DateTime.Now.Date;
             // set ThisCustomer to the test data
             AllCustomers.ThisCustomer = TestItem;
@@ -152,7 +148,6 @@ namespace Trainer_Testing
             TestItem.PostCode = "BR1 1EW";
             TestItem.Email = "Harry2@mail.com";
             TestItem.Telephone = "02358543784";
-            TestItem.DateOfBirth = DateTime.Now.Date;
             TestItem.DateAdded = DateTime.Now.Date;
             // set ThisCustomer to the test data
             AllCustomers.ThisCustomer = TestItem;
@@ -187,7 +182,6 @@ namespace Trainer_Testing
             TestItem.PostCode = "BR1 1EW";
             TestItem.Email = "Harry2@mail.com";
             TestItem.Telephone = "02358543784";
-            TestItem.DateOfBirth = DateTime.Now.Date;
             TestItem.DateAdded = DateTime.Now.Date;
             // set the ThisCustomer to the test data
             AllCustomers.ThisCustomer = TestItem;
@@ -203,7 +197,6 @@ namespace Trainer_Testing
             TestItem.PostCode = "BL2 3TG";
             TestItem.Email = "Dan21@lookmail.com";
             TestItem.Telephone = "07090321458";
-            TestItem.DateOfBirth = DateTime.Now.Date;
             TestItem.DateAdded = DateTime.Now.Date;
             // set the record based on the new test data
             AllCustomers.ThisCustomer = TestItem;
