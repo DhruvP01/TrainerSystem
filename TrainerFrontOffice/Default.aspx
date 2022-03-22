@@ -17,8 +17,8 @@
         <p>
             <asp:TextBox ID="txtEnterPostcode" runat="server" Width="195px"></asp:TextBox>
         </p>
-        <asp:Button ID="btnApply" runat="server" Text="Apply" />
-        <asp:Button ID="btnDisplayAll" runat="server" Text="Display All" />
+        <asp:Button ID="btnApply" runat="server" Text="Apply" OnClick="btnApply_Click" />
+        <asp:Button ID="btnDisplayAll" runat="server" Text="Display All" OnClick="btnDisplayAll_Click" />
         <asp:Label ID="lblError" runat="server"></asp:Label>
         <p>
             <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />

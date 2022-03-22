@@ -21,18 +21,17 @@
         <asp:TextBox ID="txtCustomerAddress" runat="server"></asp:TextBox>
         <asp:Label ID="lblCustomerTown" runat="server" Text="Customer Town"></asp:Label>
         <asp:TextBox ID="txtCustomerTown" runat="server"></asp:TextBox>
-        <p>
+        </p><p>
             <asp:Label ID="lblPostcode" runat="server" Text="Customer Postcode"></asp:Label>
             <asp:TextBox ID="txtPostcode" runat="server"></asp:TextBox>
-        </p>
+        </p><p>
         <asp:Label ID="lblCustomerTelephone" runat="server" Text="Customer Telephone"></asp:Label>
         <asp:TextBox ID="txtCustomerTelephone" runat="server"></asp:TextBox>
+        </p>
         <p>
             <asp:Label ID="lblCustomerEmail" runat="server" Text="Customer Email"></asp:Label>
             <asp:TextBox ID="txtCustomerEmail" runat="server"></asp:TextBox>
         </p>
-        <asp:Label ID="lblDateOfBirth" runat="server" Text="Customer DOB"></asp:Label>
-        <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="lblDateAdded" runat="server" Text="Date Added"></asp:Label>
             <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
