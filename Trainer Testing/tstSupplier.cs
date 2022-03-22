@@ -90,7 +90,7 @@ namespace Trainer_Testing
             Found = AnSupplier.Find(SupplierNo);
             //test to see if the result is true
             Assert.IsTrue(Found);
-
+        
 
         }
         [TestMethod]
@@ -170,7 +170,7 @@ namespace Trainer_Testing
             //invoke the method
             Found = AnSupplier.Find(SupplierNo);
             //check the property
-            if (AnSupplier.SupplierID != "1234a")
+            if (AnSupplier.SupplierID != "5")
             {
                 OK = false;
             }

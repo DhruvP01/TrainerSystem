@@ -23,7 +23,7 @@ namespace TrainerClasses
         //dateAdded private member variable
         private DateTime mDateAdded;
         //DateAdded public property 
-          public DateTime DateAdded
+        public DateTime DateAdded
         {
             get
             {
@@ -37,7 +37,7 @@ namespace TrainerClasses
         //supplierNo private member variable 
         private Int32 mSupplierNo;
         //SupplierNo public property
-          public Int32 SupplierNo
+        public Int32 SupplierNo
         {
             get
             {
@@ -53,7 +53,7 @@ namespace TrainerClasses
         //private data member for suppliername
         private string mSupplierName;
         //public data member for suppliername
-       public string SupplierName
+        public string SupplierName
         {
             get
             {
@@ -69,7 +69,7 @@ namespace TrainerClasses
         //private data member for supplierid
         private string mSupplierID;
         //public data member for supplierid
-          public string SupplierID
+        public string SupplierID
         {
             get
             {
@@ -83,17 +83,32 @@ namespace TrainerClasses
             }
         }
 
-        public bool Find(int supplierNo)
+        public bool Find(int SupplierNo)
         {
-            //set the private data members to the test data value 
-            mSupplierNo = 21;
-            mDateAdded = Convert.ToDateTime("28/06/2015");
-            mSupplierName = "Nike";
-            mSupplierID = "1234a";
-            mActive = true;
-            //always return true
-            return true;
-        }
-        
+            //create am instance of the data connection 
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the supplier no to search for 
+            DB.AddParameter("@SupplierNo", SupplierNo);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblSupplier_FilterBySupplierNo");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mSupplierNo = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierNo"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mSupplierName = Convert.ToString(DB.DataTable.Rows[0]["SupplierName"]);
+                mSupplierID = Convert.ToString(DB.DataTable.Rows[0]["SupplierID"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                //return that everything worked OK
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
+            }
     }
 }
