@@ -22,14 +22,14 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 57px; top: 257px; position: absolute"></asp:Label>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 52px; top: 295px; position: absolute" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 146px; top: 292px; position: absolute" Text="Cancel" />
-        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 312px; top: 27px; position: absolute" Text="Find" />
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 369px; top: 28px; position: absolute" Text="Find" />
         <p>
         <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 137px; top: 167px; position: absolute"></asp:TextBox>
         </p>
         <p>
             &nbsp;</p>
         <p>
-            <asp:TextBox ID="txtTown" runat="server" style="margin-left: 130px" Width="115px"></asp:TextBox>
+            <asp:TextBox ID="txtTown" runat="server" style="z-index: 1; left: 135px; top: 136px; position: absolute"></asp:TextBox>
         </p>
         <p>
             &nbsp;</p>
