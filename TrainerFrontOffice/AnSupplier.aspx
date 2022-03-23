@@ -13,6 +13,7 @@
         <p>
             <asp:Label ID="lblSupplierNo" runat="server" Text="SupplierNo"></asp:Label>
             <asp:TextBox ID="txtSupplierNo" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" />
         </p>
         <asp:Label ID="lblSupplierName" runat="server" Text="SupplierName"></asp:Label>
         <asp:TextBox ID="txtSupplierName" runat="server"></asp:TextBox>
