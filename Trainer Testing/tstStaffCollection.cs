@@ -64,8 +64,68 @@ namespace Trainer_Testing
 
         }
       
-        
-       
-        
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            ClsStaff TestItem = new ClsStaff();
+            Int32 PrimaryKey = 0;
+            TestItem.Active = true;
+            TestItem.StaffNo = 1;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.PostCode = "LE3 6AI";
+            TestItem.Address = "123 Some Road";
+            TestItem.Town = "A Town";
+            AllStaff.ThisStaff = TestItem;
+            PrimaryKey = AllStaff.Add();
+            TestItem.StaffNo = PrimaryKey;
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            ClsStaff TestItem = new ClsStaff();
+            Int32 PrimaryKey = 0;
+            TestItem.Active = true;
+            TestItem.StaffNo = 1;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.PostCode = "LE3 6AI";
+            TestItem.Address = "123 Some Road";
+            TestItem.Town = "A Town";
+            AllStaff.ThisStaff = TestItem;
+            PrimaryKey = AllStaff.Add();
+            TestItem.StaffNo = PrimaryKey;
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            AllStaff.Delete();
+            Boolean Found = AllStaff.ThisStaff.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            ClsStaff TestItem = new ClsStaff();
+            Int32 PrimaryKey = 0;
+            TestItem.Active = true;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.PostCode = "LE3 6AI";
+            TestItem.Address = "123 Some Road";
+            TestItem.Town = "A Town";
+            AllStaff.ThisStaff = TestItem;
+            PrimaryKey = AllStaff.Add();
+            TestItem.StaffNo = PrimaryKey;
+            TestItem.Active = false;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.PostCode = "WS7 2JB";
+            TestItem.Address = "123 Some Other Road";
+            TestItem.Town = "Another Town";
+            AllStaff.ThisStaff = TestItem;
+            AllStaff.Update();
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
     }
 }

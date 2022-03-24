@@ -18,7 +18,7 @@
         <asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; left: 141px; top: 63px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtAddress" runat="server" style="z-index: 1; left: 138px; top: 101px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblDateAdded" runat="server" style="z-index: 1; left: 54px; top: 169px; position: absolute" Text="Date Added"></asp:Label>
-        <asp:CheckBox ID="CheckBox1" runat="server" style="z-index: 1; left: 54px; top: 215px; position: absolute" Text="Active" />
+        <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 54px; top: 215px; position: absolute" Text="Active" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 57px; top: 257px; position: absolute"></asp:Label>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 52px; top: 295px; position: absolute" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 146px; top: 292px; position: absolute" Text="Cancel" />

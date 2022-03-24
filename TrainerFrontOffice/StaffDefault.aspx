@@ -15,9 +15,10 @@
         <asp:TextBox ID="txtEnterPostCode" runat="server" style="z-index: 1; left: 43px; top: 296px; position: absolute"></asp:TextBox>
         <asp:Button ID="btnApply" runat="server" style="z-index: 1; left: 41px; top: 352px; position: absolute" Text="Apply" />
         <asp:Button ID="btnDisplayAll" runat="server" style="z-index: 1; top: 351px; position: absolute; left: 128px" Text="Display All" />
-        <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 39px; top: 420px; position: absolute; width: 48px" Text="Add" />
-        <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 120px; top: 420px; position: absolute; width: 45px" Text="Edit" />
-        <asp:Button ID="btnDelete" runat="server" style="z-index: 1; left: 193px; top: 420px; position: absolute" Text="Delete" />
+        <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 39px; top: 420px; position: absolute; width: 48px" Text="Add" OnClick="btnAdd_Click" />
+        <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 120px; top: 420px; position: absolute; width: 45px" Text="Edit" OnClick="btnEdit_Click" />
+        <asp:Button ID="btnDelete" runat="server" style="z-index: 1; left: 193px; top: 420px; position: absolute" Text="Delete" OnClick="btnDelete_Click" />
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 248px; top: 297px; position: absolute"></asp:Label>
     </form>
 </body>
 </html>
