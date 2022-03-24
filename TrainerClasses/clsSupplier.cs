@@ -109,6 +109,68 @@ namespace TrainerClasses
                 //return false indicating a problem
                 return false;
             }
+        }
+
+        public string Valid(string supplierName, string supplierID, string dateAdded)
+        {
+            //create a string variable to store the error 
+            string Error = "";
+            //if the SupplierName is blank
+            if (supplierName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The supplier name may not be blank : ";
             }
-    }
+            //if the supplier name is greater than 7 charactera
+            if (supplierID.Length > 7)
+            {
+                // record the error
+                Error = Errror + "The supplier name must be less than 7 characters :";
+            }
+
+        }
+        //copy the dateAdded value to the DateTemp variable
+        DateTemp=Convert.ToDateTime(dateAdded);
+        if (DateTemp=Convert.ToDateTime(dateAdded);
+         if (DateTemp<DateTime.Now.Date)
+        {
+         //record the error
+         Error = Error + "The date cannot be in the past : ";
+        }
+          //check to see if the date is greater than today's date
+           if (DateTemp > DateTime.Now.Date)
+        {
+         //record the error
+         Error = Error + "The date cannot be in the future : ";
+        }
+          //is the supplier id blank
+          if (SupplierID.Length == 0)
+           {
+             //record the error
+               Error = Error + "The supplier id  may not be blank : ";
+           }
+//if the supplier id is too long 
+if (supplierid.Length > 1)
+{
+    //record the error
+    Error = Errror + "The supplier id must be less than 1 character :";
 }
+//return any error messages
+return Error;
+}
+}
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
