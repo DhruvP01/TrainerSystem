@@ -7,6 +7,7 @@ namespace TrainerClasses
     public class clsStaffCollection
     {
         List<ClsStaff> mStaffList = new List<ClsStaff>();
+        ClsStaff mThisStaff = new ClsStaff();
         public List<ClsStaff> StaffList
         {
             get
@@ -31,7 +32,18 @@ namespace TrainerClasses
             }
         }
        
-        public ClsStaff ThisStaff { get; set; }
+        public ClsStaff ThisStaff
+        {
+            get
+            {
+                return mThisStaff;
+            }
+            set
+            {
+                mThisStaff = value;
+            }
+        }
+
 
        
         public clsStaffCollection()
@@ -74,7 +86,35 @@ namespace TrainerClasses
         
         }
 
-      
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@PostCode", mThisStaff.PostCode);
+            DB.AddParameter("@Address", mThisStaff.Address);
+            DB.AddParameter("@Town", mThisStaff.Town);
+            DB.AddParameter("@DateAdded", mThisStaff.PostCode);
+            DB.AddParameter("@Active", mThisStaff.Active);
+            return DB.Execute("sproc_tblStaff_Insert");
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffNo", mThisStaff.StaffNo);
+            DB.Execute("sproc_tblStaff_Delete");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Address", mThisStaff.Address);
+            DB.AddParameter("@Town", mThisStaff.Town);
+            DB.AddParameter("@PostCode", mThisStaff.PostCode);
+            DB.AddParameter("@DateAdded", mThisStaff.DateAdded);
+            DB.AddParameter("@Active", mThisStaff.Active);
+            DB.Execute("sproc_tblStaff_Update");
+
+        }
     }
 
 }
