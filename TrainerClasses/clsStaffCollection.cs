@@ -61,7 +61,7 @@ namespace TrainerClasses
             while (Index < RecordCount)
             {
                 ClsStaff AnStaff = new ClsStaff();
-                AnStaff.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                
                 AnStaff.StaffNo = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffNo"]);
                 AnStaff.Town = Convert.ToString(DB.DataTable.Rows[Index]["Town"]);
                 AnStaff.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
